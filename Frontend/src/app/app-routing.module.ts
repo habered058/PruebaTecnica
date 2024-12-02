@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'espacios',
-    loadChildren: () => import('./pages/Spaces/spaces-list/spaces-list.module').then( m => m.SpacesListPageModule)
+    loadChildren: () => import('./modules/Spaces/pages/spaces-list/spaces-list.module').then( m => m.SpacesListPageModule)
   },
   {
     path: '',
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'espacios-detalles/:id',
-    loadChildren: () => import('./pages/Spaces/spaces-detail/spaces-detail.module').then( m => m.SpacesDetailPageModule)
+    loadChildren: () => import('./modules/Spaces/pages/spaces-detail/spaces-detail.module').then( m => m.SpacesDetailPageModule)
   },
 ];
 
