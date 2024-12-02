@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
+import { MessageComponent } from '../../message/message.component';
 
-import { DataService, Message } from '../services/data.service';
+import { DataService, Message } from '../data.service';
 
 @Component({
   selector: 'app-home',
