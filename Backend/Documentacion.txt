@@ -1,0 +1,58 @@
+composer create-project --prefer-dist laravel/laravel nombre-del-proyecto
+
+cp .env.example .env
+
+php artisan key:generate
+
+
+php artisan make:migration create_roles_table --create=roles
+php artisan make:migration create_permissions_table --create=permissions
+php artisan make:migration create_permission_roles_table --create=permission_roles
+php artisan make:migration create_spaces_table --create=spaces
+php artisan make:migration create_reservations_table --create=reservations
+php artisan make:migration create_availability_table --create=availability
+
+
+php artisan migrate:refresh
+
+
+Paso 1: Instalar el paquete JWT
+    composer require tymon/jwt-auth
+
+Paso 2: Publicar la configuración
+    php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+Paso 3: Generar la clave secreta
+    php artisan jwt:secret
+
+Paso 4: Configurar el modelo de usuario
+
+    use Tymon\JWTAuth\Contracts\JWTSubject;
+
+    class User extends Authenticatable implements JWTSubject
+    {
+        // ...
+
+        public function getJWTIdentifier()
+        {
+            return $this->getKey();
+        }
+
+        public function getJWTCustomClaims()
+        {
+            return [];
+        }
+    }
+
+Paso 5: Configurar el controlador de autenticación
+    php artisan make:controller AuthController
+
+
+php artisan route:list
+
+php artisan make:model Reservation
+php artisan make:model Space
+
+
+php artisan make:controller SpaceController
+php artisan make:controller ReservationController
