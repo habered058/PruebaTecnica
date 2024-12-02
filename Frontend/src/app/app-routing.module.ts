@@ -3,24 +3,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./services/home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'message/:id',
-    loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'spaces-list',
+    path: 'espacios',
     loadChildren: () => import('./pages/Spaces/spaces-list/spaces-list.module').then( m => m.SpacesListPageModule)
   },
   {
-    path: 'spaces-detail',
+    path: '',
+    redirectTo: 'espacios',
+    pathMatch: 'full'
+  },
+  {
+    path: 'espacios-detalles/:id',
     loadChildren: () => import('./pages/Spaces/spaces-detail/spaces-detail.module').then( m => m.SpacesDetailPageModule)
   },
 ];
