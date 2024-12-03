@@ -4,7 +4,7 @@ Esta es una es una aplicación web para la gestión de reservas de espacios, des
 
 DEMO - Ingresa aquí https://prueba789.habedev.com/
 
-DESCARGA LA APK - Ingresa aquí https://prueba789.habedev.com/
+DESCARGA LA APK - Ingresa aquí https://drive.google.com/drive/folders/1dwHUAFZ4NVYC5yz-jYbZWsw6d-GpAtrM?usp=sharing
 
 ---
 
