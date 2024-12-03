@@ -20,12 +20,9 @@ export class SpacesListPage implements OnInit  {
 
   refresh(ev: any) {
     setTimeout(() => {
+      this.getSpaces();
       (ev as RefresherCustomEvent).detail.complete();
-    }, 3000);
-  }
-
-  addSpace(){
-    console.log('test')
+    }, 0);
   }
 
   getSpaces() {

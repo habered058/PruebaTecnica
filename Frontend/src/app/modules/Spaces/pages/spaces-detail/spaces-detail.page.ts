@@ -33,7 +33,6 @@ export class SpacesDetailPage implements OnInit {
       ) => {
         this.space = response;
         this.loader = false;
-        console.log('Datos cargados:', response);
       },
       error: (error) => {
         this.loader = false;

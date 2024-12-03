@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SpaceAddPageRoutingModule } from './space-add-routing.module';
 
 import { SpaceAddPage } from './space-add.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { SpaceAddPage } from './space-add.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    SpaceAddPageRoutingModule
+    SpaceAddPageRoutingModule,
+    SharedModule
   ],
   declarations: [SpaceAddPage]
 })

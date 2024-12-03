@@ -10,7 +10,7 @@
 
 <ion-content [fullscreen]="true" *ngIf="space">
   <ion-item>
-    <ion-icon aria-hidden="true" name="person-circle" color="primary"></ion-icon>
+    <ion-icon aria-hidden="true" name="storefront" color="primary"></ion-icon>
     <ion-label class="ion-text-wrap">
       <h2>
         {{ space.name }}
@@ -18,15 +18,15 @@
           <ion-note>{{ space.capacity }}</ion-note>
         </span>
       </h2>
-      <h3>To: <ion-note>Me</ion-note></h3>
+      <h3>Capacidad: <ion-note>{{ space.capacity }} Personas</ion-note></h3>
     </ion-label>
   </ion-item>
   
   <div class="ion-padding">
     <img *ngIf="space.photo" [src]="baseUrl+space.photo" alt="">
-    <h1>{{ space.description }}</h1>
+    <h1>{{ space.name }}</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      {{ space.description }}
     </p>
   </div>
 </ion-content>
