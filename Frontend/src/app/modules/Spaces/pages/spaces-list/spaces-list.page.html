@@ -1,0 +1,46 @@
+<app-loader [showLoader]="loader"></app-loader>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Espacios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down-outline" pullingText="Desliza para actualizar"
+      refreshingSpinner="crescent" refreshingText="Cargando..."></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large">
+        Espacios
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ng-container *ngFor="let space of spaces">
+      <ion-item *ngIf="space" [routerLink]="'/espacios-detalles/' + space.id" [detail]="false">
+        <div slot="start" class="dot"></div>
+        <ion-label class="ion-text-wrap">
+          <h2>
+            {{ space.name }}
+          </h2>
+          <h3> Capacidad {{ space.capacity }} Personas</h3>
+          <p>
+            Capacidad {{ space.description }} 
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="'/espacios-agregar'">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
