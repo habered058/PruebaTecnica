@@ -1,0 +1,91 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Agregar Espacio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="formSpace" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+
+
+      <ion-item lines="full" class="input-item">
+        <ion-icon name="text-outline" slot="start"></ion-icon>
+        <ion-label position="stacked">Nombre del Espacio</ion-label>
+        <ion-input 
+          formControlName="name" 
+          placeholder="Ingrese el nombre del espacio"
+          [class.invalid]="nombreInvalido"
+        ></ion-input>
+        <ion-note color="danger" *ngIf="nombreInvalido" class="error-message">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          Nombre es requerido (min. 3 caracteres)
+        </ion-note>
+      </ion-item>
+
+
+      <ion-item lines="full" class="input-item">
+        <ion-icon name="document-text-outline" slot="start"></ion-icon>
+        <ion-label position="stacked">Descripción</ion-label>
+        <ion-textarea 
+          formControlName="description" 
+          placeholder="Describa brevemente el espacio"
+          [class.invalid]="descripcionInvalida"
+        ></ion-textarea>
+        <ion-note color="danger" *ngIf="descripcionInvalida" class="error-message">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          Descripción es requerida (min. 10 caracteres)
+        </ion-note>
+      </ion-item>
+
+      
+      <ion-item lines="full" class="input-item">
+        <ion-icon name="calculator-outline" slot="start"></ion-icon>
+        <ion-label position="stacked">Cantidad Disponible</ion-label>
+        <ion-input 
+          type="number" 
+          formControlName="capacity"
+          placeholder="Ingrese la cantidad disponible"
+          [class.invalid]="cantidadInvalida"
+        ></ion-input>
+        <ion-note color="danger" *ngIf="cantidadInvalida" class="error-message">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          Cantidad debe ser mayor a 0
+        </ion-note>
+      </ion-item>
+
+      
+      <ion-item lines="full" class="input-item">
+        <ion-icon name="image-outline" slot="start"></ion-icon>
+        <ion-label position="stacked">Fotografía</ion-label>
+        <ion-input 
+          type="file" 
+          (change)="onFileSelected($event)" 
+          accept="image/*"
+          [class.invalid]="!fotoSeleccionada"
+        ></ion-input>
+        <ion-note color="danger" *ngIf="!fotoSeleccionada" class="error-message">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          Por favor selecciona una fotografía
+        </ion-note>
+      </ion-item>
+
+     
+      <ion-button 
+        expand="block" 
+        type="submit" 
+        [disabled]="formSpace.invalid || !fotoSeleccionada"
+        color="primary"
+        class="submit-button"
+      >
+        <ion-icon name="save-outline" slot="start"></ion-icon>
+        Enviar
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

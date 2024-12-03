@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
-  ApiUrl : 'http://127.0.0.1:8000/api/space'
+  ApiUrl : 'http://127.0.0.1:8000/api',
+  BaseUrl: 'http://127.0.0.1:8000'
 };
 

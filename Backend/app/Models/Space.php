@@ -9,5 +9,5 @@ class Space extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'capacity'];
+    protected $fillable = ['name', 'description', 'capacity', 'photo'];
 }

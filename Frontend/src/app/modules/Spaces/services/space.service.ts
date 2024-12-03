@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SpaceService {
 
-  private apiUrl = environment.ApiUrl; 
+  private apiUrl = environment.ApiUrl+'/space'; 
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +23,12 @@ export class SpaceService {
 
   getDataById(id:number): Observable<Space> {
     return this.http.get<Space>(`${this.apiUrl}/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  postData(formData: FormData): Observable<Space> {
+    return this.http.post<Space>(this.apiUrl, formData).pipe(
       catchError(this.handleError)
     );
   }

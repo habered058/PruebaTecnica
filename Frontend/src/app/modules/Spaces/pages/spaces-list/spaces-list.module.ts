@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SpacesListPageRoutingModule } from './spaces-list-routing.module';
 
 import { SpacesListPage } from './spaces-list.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SpacesListPageRoutingModule
+    SpacesListPageRoutingModule,
+    SharedModule
   ],
   declarations: [SpacesListPage]
 })

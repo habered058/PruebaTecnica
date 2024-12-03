@@ -15,6 +15,11 @@ const routes: Routes = [
     path: 'espacios-detalles/:id',
     loadChildren: () => import('./modules/Spaces/pages/spaces-detail/spaces-detail.module').then( m => m.SpacesDetailPageModule)
   },
+  {
+    path: 'espacios-agregar',
+    loadChildren: () => import('./modules/Spaces/pages/space-add/space-add.module').then( m => m.SpaceAddPageModule)
+  },
+
 ];
 
 @NgModule({

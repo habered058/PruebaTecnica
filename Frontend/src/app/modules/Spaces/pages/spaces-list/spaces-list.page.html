@@ -1,7 +1,8 @@
+<app-loader [showLoader]="loader"></app-loader>
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Espacios para reservar
+      Espacios
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +13,7 @@
   </ion-refresher>
   
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar color="primary">
       <ion-title size="large">
         Espacios
       </ion-title>
@@ -38,4 +39,10 @@
         </ion-item>
     </ng-container>
   </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" >
+    <ion-fab-button [routerLink]="'/espacios-agregar'">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

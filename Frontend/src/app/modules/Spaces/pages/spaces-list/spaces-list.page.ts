@@ -10,6 +10,7 @@ import { SpaceService } from 'src/app/modules/Spaces/services/space.service';
 export class SpacesListPage implements OnInit  {
 
   spaces: Space[] = [];
+  loader: boolean = false;
 
   private spaceService = inject(SpaceService);
 
@@ -23,14 +24,21 @@ export class SpacesListPage implements OnInit  {
     }, 3000);
   }
 
+  addSpace(){
+    console.log('test')
+  }
+
   getSpaces() {
+    this.loader = true;
     this.spaceService.getData().subscribe({
       next: (response
       ) => {
         this.spaces = response;
+        this.loader = false;
         console.log('Datos cargados:', response);
       },
       error: (error) => {
+        this.loader = false;
         console.error('Error al cargar datos', error);
       }
     });

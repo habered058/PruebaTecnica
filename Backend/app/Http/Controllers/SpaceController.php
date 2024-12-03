@@ -4,23 +4,49 @@ namespace App\Http\Controllers;
 
 use App\Models\Space;
 use Illuminate\Http\Request;
+use Storage;
 
 class SpaceController extends Controller
 {
-    // Listar todos los espacios (Read)
     public function index()
     {
         return response()->json(Space::all(), 200);
     }
 
-    // Crear un nuevo espacio (Create)
+
+    public function uploadPhoto($file)
+    {
+        if (!$file || !$file->isValid()) {
+            throw new \Exception('Archivo inválido');
+        }
+
+        $filename = 'space_' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $path = $file->storeAs('spaces', $filename, 'public');
+        return Storage::url($path);
+    }
+
     public function store(Request $request)
     {
+        error_log('Data Verificada');
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'capacity' => 'nullable|integer',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
+
+        error_log('Data Verificada');
+
+        if ($request->hasFile('photo')) {
+            try {
+                $validatedData['photo'] = $this->uploadPhoto($request->file('photo'));
+            } catch (\Exception $e) {
+                return response()->json([
+                    'message' => 'Error uploading photo',
+                    'error' => $e->getMessage()
+                ], 400);
+            }
+        }
 
         $space = Space::create($validatedData);
 
