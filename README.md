@@ -2,6 +2,10 @@
 
 Esta es una es una aplicación web para la gestión de reservas de espacios, desarrollado con **Ionic 7** y **Angular 18** en el frontend, y **Laravel 11** en el backend. Está diseñado para facilitar la creación, gestión y reserva de espacios para distintos propósitos.
 
+DEMO - Ingresa aquí https://prueba789.habedev.com/
+
+DESCARGA LA APK - Ingresa aquí https://prueba789.habedev.com/
+
 ---
 
 ## 🚀 **Características principales**
@@ -31,7 +35,7 @@ Esta es una es una aplicación web para la gestión de reservas de espacios, des
 - Node.js y npm (para Ionic y Angular)
 - Composer (para Laravel)
 - MySQL
-- Clona el repositorio: git clone https://github.com/tuusuario/nombre-proyecto.git
+- Clona el repositorio: git clone https://github.com/habered058/PruebaTecnica.git
 
 ### **Instalación del Frontend**
 1. Abre la carpeta del Frontend: 

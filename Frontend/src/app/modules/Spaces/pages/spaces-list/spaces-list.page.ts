@@ -1,4 +1,5 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Platform, RefresherCustomEvent } from '@ionic/angular';
 import { Space } from 'src/app/core/interfaces/space.interface';
 import { SpaceService } from 'src/app/modules/Spaces/services/space.service';
@@ -13,9 +14,15 @@ export class SpacesListPage implements OnInit  {
   loader: boolean = false;
 
   private spaceService = inject(SpaceService);
+  private router = inject(Router);
 
   ngOnInit() {
     this.getSpaces();
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd && event.url === '/espacios') {
+        this.getSpaces();
+      }
+    });
   }
 
   refresh(ev: any) {
@@ -32,7 +39,6 @@ export class SpacesListPage implements OnInit  {
       ) => {
         this.spaces = response;
         this.loader = false;
-        console.log('Datos cargados:', response);
       },
       error: (error) => {
         this.loader = false;

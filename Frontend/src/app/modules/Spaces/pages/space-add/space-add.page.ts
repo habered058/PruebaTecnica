@@ -79,13 +79,25 @@ export class SpaceAddPage {
       next: (response
       ) => {
         this.loader = false;
-        this.router.navigateByUrl('/');
+        this.showMessage('Nuevo Espacio','Se ha guardado el nuevo espacio exitosamente')
+        this.router.navigateByUrl('/espacios');
       },
       error: (error) => {
         this.loader = false;
+        this.showMessage('Error','Se ha presentado un error, por favor intente nuevamente')
         console.error('Error al cargar datos', error);
       }
     });
+  }
+
+  async showMessage(header:string, message:string){
+    const alert = await this.alertController.create({
+      header: header,
+      message: message,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 
