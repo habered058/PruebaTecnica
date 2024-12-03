@@ -32,7 +32,7 @@ class SpaceController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'capacity' => 'nullable|integer',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif'
         ]);
 
         error_log('Data Verificada');

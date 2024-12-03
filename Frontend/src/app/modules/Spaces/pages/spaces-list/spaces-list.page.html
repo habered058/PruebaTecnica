@@ -24,15 +24,16 @@
   <ion-list>
     <ng-container *ngFor="let space of spaces">
       <ion-item *ngIf="space" [routerLink]="'/espacios-detalles/' + space.id" [detail]="false">
-        <div slot="start" class="dot"></div>
+        <ion-icon aria-hidden="true" name="storefront" color="primary"></ion-icon>
         <ion-label class="ion-text-wrap">
-          <h2>
+          <h2> 
             {{ space.name }}
           </h2>
           <h3> Capacidad {{ space.capacity }} Personas</h3>
           <p>
             Capacidad {{ space.description }} 
           </p>
+          <p><a>Ver más...</a></p>
         </ion-label>
       </ion-item>
     </ng-container>
